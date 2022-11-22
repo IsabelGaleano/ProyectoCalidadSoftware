@@ -10,7 +10,7 @@ using WebDriverManager.DriverConfigs.Impl;
 
 namespace ProyectoCalidad.Tests
 {
-    public class ProductCartTest
+    public class SuggestionsTest
     {
         private IWebDriver driver;
 
@@ -22,12 +22,12 @@ namespace ProyectoCalidad.Tests
         }
 
         [Test]
-        public void addProductCart()
+        public void validateSuggestions()
         {
-            ProductCartPage productPage = new ProductCartPage(driver);
+            SuggestionsSearchesPage page = new SuggestionsSearchesPage(driver);
             driver.Navigate().GoToUrl("https://www.target.com/");
-            productPage.addToCart();
-            Assert.True(this.driver.Title.Contains("Boardwalk Brown Paper Towels - 6 Rolls : Target"));
+            page.validateSuggestion("shoes");
+            Assert.True(this.driver.Title.Contains("Target : Expect More. Pay Less."));
         }
 
         [TearDown]
