@@ -17,8 +17,9 @@ namespace ProyectoCalidad.Tests
         [SetUp]
         public void initScript()
         {
-            new DriverManager().SetUpDriver(new ChromeConfig());
-            driver = new ChromeDriver();
+            ChromeOptions options = new ChromeOptions();
+            options.AddArgument("--incognito");
+            driver = new ChromeDriver(options);
         }
 
         [Test]

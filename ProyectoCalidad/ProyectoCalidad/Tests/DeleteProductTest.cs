@@ -5,6 +5,7 @@ using ProyectoCalidad.Source.Pages;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Threading;
 using WebDriverManager;
 using WebDriverManager.DriverConfigs.Impl;
 
@@ -17,12 +18,13 @@ namespace ProyectoCalidad.Tests
         [SetUp]
         public void initScript()
         {
-            new DriverManager().SetUpDriver(new ChromeConfig());
-            driver = new ChromeDriver();
+            ChromeOptions options = new ChromeOptions();
+            options.AddArgument("--incognito");
+            driver = new ChromeDriver(options);
         }
 
         [Test]
-        public void addProductCart()
+        public void deleteProductCart()
         {
             DeleteProductPage productPage = new DeleteProductPage(driver);
             driver.Navigate().GoToUrl("https://www.target.com/");
