@@ -3,6 +3,7 @@ using SeleniumExtras.PageObjects;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Threading;
 
 namespace ProyectoCalidad.Source.Pages
 {
@@ -23,16 +24,6 @@ namespace ProyectoCalidad.Source.Pages
         {
             HomePage hp = new HomePage(driver);
             hp.search(searchtext);
-            string text = linkSuggestion.Text;
-
-            if (text.Contains(searchtext))
-            {
-                Console.WriteLine("True");
-            }
-            else
-            {
-                Console.WriteLine("False");
-            }
         }
     }
 }
