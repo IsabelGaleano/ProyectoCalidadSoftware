@@ -34,6 +34,15 @@ namespace ProyectoCalidad.Tests
 
         }
 
+        [Test]
+        public void findCategories()
+        {
+            HomePage homePage = new HomePage(driver);
+            driver.Navigate().GoToUrl("https://www.target.com/");
+            homePage.findCategories();
+            Assert.True(this.driver.Title.Contains("Peck Apple Iphone 14 Pro Presidio Perfect Clear Case : Target"));
+        }
+
 
         [TearDown]
         public void cleanup()

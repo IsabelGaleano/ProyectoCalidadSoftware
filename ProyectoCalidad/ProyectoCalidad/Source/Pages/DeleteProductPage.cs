@@ -3,6 +3,7 @@ using SeleniumExtras.PageObjects;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Threading;
 
 namespace ProyectoCalidad.Source.Pages
 {
@@ -12,8 +13,6 @@ namespace ProyectoCalidad.Source.Pages
 
         [FindsBy(How = How.XPath, Using = "//*[@id='__next']/div[2]/div[3]/div/div/div[1]/div[2]/div/div/div[3]/div[3]/button")]
         private IWebElement btnDeleteCart;
-
-       
 
 
         public DeleteProductPage(IWebDriver driver)
@@ -27,8 +26,11 @@ namespace ProyectoCalidad.Source.Pages
           
             ProductCartPage productCartPage = new ProductCartPage(this.driver);
             productCartPage.addToCart();
+            Thread.Sleep(3000);
             driver.Navigate().GoToUrl("https://www.target.com/cart");
+            Thread.Sleep(4000);
             btnDeleteCart.Click();
+            Thread.Sleep(4000);
 
         }
     }
