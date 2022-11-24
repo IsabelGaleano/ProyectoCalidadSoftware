@@ -1,6 +1,7 @@
 ﻿using NUnit.Framework;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
+using OpenQA.Selenium.Firefox;
 using ProyectoCalidad.Source.Pages;
 using System;
 using System.Collections.Generic;
@@ -19,7 +20,6 @@ namespace ProyectoCalidad.Tests
             options.AddArgument("--incognito");
             driver = new ChromeDriver(options);
 
-           
         }
 
         [Test]
@@ -27,7 +27,7 @@ namespace ProyectoCalidad.Tests
         {
             CreateAccountPage productPage = new CreateAccountPage(driver);
             driver.Navigate().GoToUrl("https://www.target.com/");
-            productPage.createAccount();
+            productPage.createAccount("julianStartupsafe@gmail.com","Julian", "Herrera","Gatos123!");
             //Assert.True(this.driver.Title.Contains("Cart : Target"));
         }
 

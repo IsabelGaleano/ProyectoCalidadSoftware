@@ -42,17 +42,17 @@ namespace ProyectoCalidad.Source.Pages
             PageFactory.InitElements(driver, this);
         }
 
-        public void createAccount()
+        public void createAccount(string vemail,string vname, string vlastname,string vpassword)
         {
             linkSignIn.Click();
             Thread.Sleep(2000);
             IWebElement element = elements[1];
             element.Click();
             Thread.Sleep(2000);
-            email.SendKeys("luwiisabel@gmail.com");
-            name.SendKeys("Isabel");
-            lastname.SendKeys("Galeano");
-            password.SendKeys("Gatos123!");
+            email.SendKeys(vemail);
+            name.SendKeys(vname);
+            lastname.SendKeys(vlastname);
+            password.SendKeys(vpassword);
             Thread.Sleep(2000);
             btnCreateAccount.Click();
             Thread.Sleep(4000);
