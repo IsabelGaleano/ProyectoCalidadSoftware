@@ -5,13 +5,10 @@ using ProyectoCalidad.Source.Pages;
 using System;
 using System.Collections.Generic;
 using System.Text;
-using WebDriverManager;
-using WebDriverManager.DriverConfigs.Impl;
 
 namespace ProyectoCalidad.Tests
 {
-    public class HomeTest 
-
+    public class LoginTest
     {
         private IWebDriver driver;
 
@@ -19,29 +16,30 @@ namespace ProyectoCalidad.Tests
         public void initScript()
         {
             ChromeOptions options = new ChromeOptions();
+            options.AddArgument("--disable-blink-features=AutomationControlled");
             options.AddArgument("--incognito");
             driver = new ChromeDriver(options);
+
+            
         }
 
         [Test]
-        public void search()
+        public void login()
         {
-            HomePage homePage = new HomePage(driver);
-            driver.Navigate().GoToUrl("https://www.bestbuy.com/?intl=nosplash");
-            homePage.search("shoes");
-            Assert.True(this.driver.Title.Contains("shoes - Best Buy"));
-
+            LoginPage productPage = new LoginPage(driver);
+            driver.Navigate().GoToUrl("https://www.target.com/");
+            productPage.login("julianStartupsafe@gmail.com",  "Gatos123!");
+            //Assert.True(this.driver.Title.Contains("Cart : Target"));
         }
 
         [Test]
-        public void findCategories()
+        public void loginWalmart()
         {
-            HomePage homePage = new HomePage(driver);
+            LoginPage productPage = new LoginPage(driver);
             driver.Navigate().GoToUrl("https://www.bestbuy.com/?intl=nosplash");
-            homePage.findCategories();
-            //Assert.True(this.driver.Title.Contains("Peck Apple Iphone 14 Pro Presidio Perfect Clear Case : Target"));
+            productPage.loginWalmart();
+            //Assert.True(this.driver.Title.Contains("Cart : Target"));
         }
-
 
         [TearDown]
         public void cleanup()

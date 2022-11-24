@@ -27,9 +27,9 @@ namespace ProyectoCalidad.Tests
         public void deleteProductCart()
         {
             DeleteProductPage productPage = new DeleteProductPage(driver);
-            driver.Navigate().GoToUrl("https://www.target.com/");
+            driver.Navigate().GoToUrl("https://www.bestbuy.com/?intl=nosplash");
             productPage.deleteProductCart();
-            Assert.True(this.driver.Title.Contains("Cart : Target"));
+            Assert.True(this.driver.Title.Contains("Cart - Best Buy"));
         }
 
         [TearDown]
