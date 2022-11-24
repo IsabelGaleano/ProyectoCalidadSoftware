@@ -16,6 +16,7 @@ namespace ProyectoCalidad.Tests
         public void initScript()
         {
             ChromeOptions options = new ChromeOptions();
+            options.AddArgument("--disable-blink-features=AutomationControlled");
             options.AddArgument("--incognito");
             driver = new ChromeDriver(options);
 
@@ -28,6 +29,15 @@ namespace ProyectoCalidad.Tests
             LoginPage productPage = new LoginPage(driver);
             driver.Navigate().GoToUrl("https://www.target.com/");
             productPage.login("julianStartupsafe@gmail.com",  "Gatos123!");
+            //Assert.True(this.driver.Title.Contains("Cart : Target"));
+        }
+
+        [Test]
+        public void loginWalmart()
+        {
+            LoginPage productPage = new LoginPage(driver);
+            driver.Navigate().GoToUrl("https://www.bestbuy.com/?intl=nosplash");
+            productPage.loginWalmart();
             //Assert.True(this.driver.Title.Contains("Cart : Target"));
         }
 

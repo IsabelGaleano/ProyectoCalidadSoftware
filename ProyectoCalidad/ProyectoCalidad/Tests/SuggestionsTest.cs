@@ -27,10 +27,10 @@ namespace ProyectoCalidad.Tests
         public void validateSuggestions()
         {
             SuggestionsSearchesPage page = new SuggestionsSearchesPage(driver);
-            driver.Navigate().GoToUrl("https://www.target.com/");
-            page.validateSuggestion("shoes rack bench");
+            driver.Navigate().GoToUrl("https://www.bestbuy.com/?intl=nosplash");
+            page.validateSuggestion("headphones wireless noise cancel");
             Thread.Sleep(3000);
-            Assert.True(this.driver.Title.Contains("Shoes Rack Bench : Target"));
+            Assert.True(this.driver.Title.Contains("headphones wireless noise cancel - Best Buy"));
         }
 
         [TearDown]

@@ -26,9 +26,9 @@ namespace ProyectoCalidad.Tests
         public void addProductCart()
         {
             ProductCartPage productPage = new ProductCartPage(driver);
-            driver.Navigate().GoToUrl("https://www.target.com/");
+            driver.Navigate().GoToUrl("https://www.bestbuy.com/?intl=nosplash");
             productPage.addToCart();
-            Assert.True(this.driver.Title.Contains("Boardwalk Brown Paper Towels - 6 Rolls : Target"));
+            Assert.True(this.driver.Title.Contains("Cart - Best Buy"));
         }
 
         [TearDown]

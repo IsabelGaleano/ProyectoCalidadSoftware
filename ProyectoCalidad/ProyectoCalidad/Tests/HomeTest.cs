@@ -24,13 +24,12 @@ namespace ProyectoCalidad.Tests
         }
 
         [Test]
-        public void searchShoes()
+        public void search()
         {
             HomePage homePage = new HomePage(driver);
-            driver.Navigate().GoToUrl("https://www.target.com/");
-            homePage.search("shoes racks");
-            Console.WriteLine(driver.Title);
-            Assert.True(this.driver.Title.Contains("Target : Expect More. Pay Less."));
+            driver.Navigate().GoToUrl("https://www.bestbuy.com/?intl=nosplash");
+            homePage.search("shoes");
+            Assert.True(this.driver.Title.Contains("shoes - Best Buy"));
 
         }
 

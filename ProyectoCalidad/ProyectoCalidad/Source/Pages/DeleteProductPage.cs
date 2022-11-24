@@ -11,8 +11,11 @@ namespace ProyectoCalidad.Source.Pages
     {
         private IWebDriver driver;
 
-        [FindsBy(How = How.XPath, Using = "//*[@id='__next']/div[2]/div[3]/div/div/div[1]/div[2]/div/div/div[3]/div[3]/button")]
-        private IWebElement btnDeleteCart;
+        [FindsBy(How = How.ClassName, Using = "cart-item__remove")]
+        private IWebElement btnRemove;
+
+        [FindsBy(How = How.XPath, Using = "//*[@id='cartApp']/div[2]/div[1]/div/div[2]/div[1]/section[1]/div[4]/ul/li/div/div/div[4]/button")]
+        private IWebElement btnSaveRemove;
 
 
         public DeleteProductPage(IWebDriver driver)
@@ -26,11 +29,10 @@ namespace ProyectoCalidad.Source.Pages
           
             ProductCartPage productCartPage = new ProductCartPage(this.driver);
             productCartPage.addToCart();
-            Thread.Sleep(3000);
-            driver.Navigate().GoToUrl("https://www.target.com/cart");
-            Thread.Sleep(4000);
-            btnDeleteCart.Click();
-            Thread.Sleep(4000);
+            btnRemove.Click();
+            Thread.Sleep(1000);
+            btnSaveRemove.Click();
+            Thread.Sleep(2000);
 
         }
     }

@@ -11,10 +11,10 @@ namespace ProyectoCalidad.Source.Pages
     {
         private IWebDriver driver;
 
-        [FindsBy(How = How.ClassName, Using = "styles__SearchInput-sc-srf2ow-6")]
+        [FindsBy(How = How.Id, Using = "gh-search-input")]
         private IWebElement searchtxtbox;
 
-        [FindsBy(How = How.ClassName, Using = "styles__SearchButton-sc-srf2ow-7")]
+        [FindsBy(How = How.ClassName, Using = "header-search-button")]
         private IWebElement searchBtn;
 
         [FindsBy(How = How.XPath, Using = "//*[@id='pageBodyContainer']/div[1]/div/div[4]/div/div/div[2]/div/div[1]/div/div[2]/div/div[1]/button")]
@@ -32,6 +32,7 @@ namespace ProyectoCalidad.Source.Pages
         {
             searchtxtbox.SendKeys(searchtext);
             searchBtn.Click();
+            Thread.Sleep(3000);
         }
 
         public void findCategories()
