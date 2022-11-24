@@ -17,11 +17,17 @@ namespace ProyectoCalidad.Source.Pages
         [FindsBy(How = How.ClassName, Using = "header-search-button")]
         private IWebElement searchBtn;
 
-        [FindsBy(How = How.XPath, Using = "//*[@id='pageBodyContainer']/div[1]/div/div[4]/div/div/div[2]/div/div[1]/div/div[2]/div/div[1]/button")]
+        [FindsBy(How = How.CssSelector, Using = "button[data-lid='hdr_utility_more'")]
         private IWebElement btnCategory;
 
-        [FindsBy(How = How.LinkText, Using = "Home")]
-        public IWebElement categorieHome;
+        [FindsBy(How = How.CssSelector, Using = "a[data-lid='hdr_hol_gift_ideas']")]
+        private IWebElement linkCategoryGift;
+
+        [FindsBy(How = How.ClassName, Using = "cn-carousel-item")]
+        private IList<IWebElement> listCategories;
+
+        [FindsBy(How = How.ClassName, Using = "se-carousel-item")]
+        private IList<IWebElement> listProducts;
 
         public HomePage(IWebDriver driver) {
             this.driver = driver;
@@ -38,15 +44,16 @@ namespace ProyectoCalidad.Source.Pages
         public void findCategories()
         {
 
-            search("peck Apple iPhone 14 Pro Presidio Perfect Clear Case");
-            Thread.Sleep(2000);
             btnCategory.Click();
-            Thread.Sleep(2000);
-            IList<IWebElement> elements = driver.FindElements(By.ClassName("bcezkS"));
-            Thread.Sleep(2000);
-            IWebElement el = elements[3];
+            Thread.Sleep(1000);
+            linkCategoryGift.Click();
+            Thread.Sleep(1000);
+            IWebElement el = listCategories[2];
             el.Click();
-            Thread.Sleep(4000);
+            Thread.Sleep(1000);
+            IWebElement pr = listProducts[0];
+            pr.Click();
+            Thread.Sleep(2000);
         }
 
 

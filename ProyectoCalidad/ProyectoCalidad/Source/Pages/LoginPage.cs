@@ -15,23 +15,11 @@ namespace ProyectoCalidad.Source.Pages
         [FindsBy(How = How.XPath, Using = "//*[@id='headerPrimary']/a[4]")]
         private IWebElement linkSignIn;
 
-        [FindsBy(How = How.ClassName, Using = "isUGLz")]
-        private IList<IWebElement> elements;
-
-        [FindsBy(How = How.Id, Using = "username")]
-        private IWebElement email;
-
-        [FindsBy(How = How.Id, Using = "password")]
-        private IWebElement password;
-
-        [FindsBy(How = How.Id, Using = "login")]
-        private IWebElement btnLogin;
-
         [FindsBy(How = How.CssSelector, Using = "button[data-lid='hdr_signin']")]
-        private IWebElement linkLoginW;
+        private IWebElement linkLogin;
 
         [FindsBy(How = How.ClassName, Using = "sign-in-btn")]
-        private IWebElement elementsL;
+        private IWebElement elements;
 
         [FindsBy(How = How.Id, Using = "fld-e")]
         private IWebElement emailB;
@@ -49,30 +37,16 @@ namespace ProyectoCalidad.Source.Pages
             PageFactory.InitElements(driver, this);
         }
 
-        public void login(string vemail, string vpassword)
-        {
-            linkSignIn.Click();
-            Thread.Sleep(2000);
-            IWebElement element = elements[0];
-            element.Click();
-            Thread.Sleep(4000);
-            email.SendKeys(vemail);
-            password.SendKeys(vpassword);
-            Thread.Sleep(4000);
-            btnLogin.Click();
-            Thread.Sleep(9000);
-        }
-
-        public void loginWalmart()
+        public void login()
         {
             Thread.Sleep(3000);
-            linkLoginW.Click();
+            linkLogin.Click();
             Thread.Sleep(2000);
-            elementsL.Click();
+            elements.Click();
             Thread.Sleep(2000);
-            emailB.SendKeys("isagaleano9@gmail.com");
+            //emailB.SendKeys("");
             Thread.Sleep(1000);
-            passwordB.SendKeys("Isabel0806!");
+            //passwordB.SendKeys("");
             Thread.Sleep(4000);
             btnLoginB.Click();
             Thread.Sleep(9000);
