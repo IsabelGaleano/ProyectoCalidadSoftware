@@ -17,6 +17,7 @@ namespace ProyectoCalidad.Tests
         public void initScript()
         {
             ChromeOptions options = new ChromeOptions();
+            options.AddArgument("--disable-blink-features=AutomationControlled");
             options.AddArgument("--incognito");
             driver = new ChromeDriver(options);
 
@@ -26,8 +27,8 @@ namespace ProyectoCalidad.Tests
         public void createAccout()
         {
             CreateAccountPage productPage = new CreateAccountPage(driver);
-            driver.Navigate().GoToUrl("https://www.target.com/");
-            productPage.createAccount("julianStartupsafe@gmail.com","Julian", "Herrera","Gatos123!");
+            driver.Navigate().GoToUrl("https://www.bestbuy.com/?intl=nosplash");
+            productPage.createAccount("julianStartupsafe@gmail.com","Julian", "Herrera","GatosLuw123!","50684511935");
             //Assert.True(this.driver.Title.Contains("Cart : Target"));
         }
 
