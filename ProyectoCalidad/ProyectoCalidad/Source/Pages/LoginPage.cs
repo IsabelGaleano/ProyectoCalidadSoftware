@@ -45,7 +45,7 @@ namespace ProyectoCalidad.Source.Pages
             password.SendKeys(vpassword);
             Thread.Sleep(2000);
             btnLogin.Click();
-            Thread.Sleep(6000);
+            Thread.Sleep(8000);
         }
     }
 }

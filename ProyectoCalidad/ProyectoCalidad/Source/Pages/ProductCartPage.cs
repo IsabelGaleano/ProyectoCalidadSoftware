@@ -24,6 +24,7 @@ namespace ProyectoCalidad.Source.Pages
         {
             HomePage hp = new HomePage(driver);
             hp.search("shoes rack");
+            Thread.Sleep(1000);
             btnaddToCart.Click();
             Thread.Sleep(5000);
 
