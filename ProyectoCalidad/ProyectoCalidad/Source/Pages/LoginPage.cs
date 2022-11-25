@@ -12,23 +12,20 @@ namespace ProyectoCalidad.Source.Pages
         private IWebDriver driver;
 
 
-        [FindsBy(How = How.XPath, Using = "//*[@id='headerPrimary']/a[4]")]
-        private IWebElement linkSignIn;
-
         [FindsBy(How = How.CssSelector, Using = "button[data-lid='hdr_signin']")]
         private IWebElement linkLogin;
 
         [FindsBy(How = How.ClassName, Using = "sign-in-btn")]
-        private IWebElement elements;
+        private IWebElement btnSignIn;
 
         [FindsBy(How = How.Id, Using = "fld-e")]
-        private IWebElement emailB;
+        private IWebElement email;
 
         [FindsBy(How = How.Id, Using = "fld-p1")]
-        private IWebElement passwordB;
+        private IWebElement password;
 
         [FindsBy(How = How.CssSelector, Using = "button[data-track='Sign In']")]
-        private IWebElement btnLoginB;
+        private IWebElement btnLogin;
 
 
         public LoginPage(IWebDriver driver)
@@ -37,19 +34,18 @@ namespace ProyectoCalidad.Source.Pages
             PageFactory.InitElements(driver, this);
         }
 
-        public void login()
+        public void login(string vemail, string vpassword)
         {
-            Thread.Sleep(3000);
             linkLogin.Click();
-            Thread.Sleep(2000);
-            elements.Click();
-            Thread.Sleep(2000);
-            //emailB.SendKeys("");
             Thread.Sleep(1000);
-            //passwordB.SendKeys("");
-            Thread.Sleep(4000);
-            btnLoginB.Click();
-            Thread.Sleep(9000);
+            btnSignIn.Click();
+            Thread.Sleep(1000);
+            email.SendKeys(vemail);
+            Thread.Sleep(1000);
+            password.SendKeys(vpassword);
+            Thread.Sleep(2000);
+            btnLogin.Click();
+            Thread.Sleep(6000);
         }
     }
 }
