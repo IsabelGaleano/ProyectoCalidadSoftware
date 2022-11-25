@@ -34,15 +34,15 @@ namespace ProyectoCalidad.Source.Pages
             PageFactory.InitElements(driver, this);
         }
 
-        public void login()
+        public void login(string vemail, string vpassword)
         {
             linkLogin.Click();
             Thread.Sleep(1000);
             btnSignIn.Click();
             Thread.Sleep(1000);
-            //email.SendKeys("");
+            email.SendKeys(vemail);
             Thread.Sleep(1000);
-            //password.SendKeys("");
+            password.SendKeys(vpassword);
             Thread.Sleep(2000);
             btnLogin.Click();
             Thread.Sleep(6000);

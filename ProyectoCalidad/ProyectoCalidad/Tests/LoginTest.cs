@@ -29,7 +29,7 @@ namespace ProyectoCalidad.Tests
         {
             LoginPage productPage = new LoginPage(driver);
             driver.Navigate().GoToUrl("https://www.bestbuy.com/?intl=nosplash");
-            productPage.login();
+            productPage.login("julianStartupsafe@gmail.com","GatosLuw123!");
             //Assert.True(this.driver.Title.Contains("Cart : Target"));
         }
 

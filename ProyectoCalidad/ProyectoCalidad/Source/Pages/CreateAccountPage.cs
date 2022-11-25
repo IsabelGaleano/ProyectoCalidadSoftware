@@ -12,29 +12,32 @@ namespace ProyectoCalidad.Source.Pages
         private IWebDriver driver;
 
 
-        [FindsBy(How = How.XPath, Using = "//*[@id='headerPrimary']/a[4]")]
-        private IWebElement linkSignIn;
+        [FindsBy(How = How.CssSelector, Using = "button[data-lid='hdr_signin']")]
+        private IWebElement linkLogin;
 
-        [FindsBy(How = How.ClassName, Using = "isUGLz")]
-        private IList<IWebElement> elements;
+        [FindsBy(How = How.ClassName, Using = "create-account-btn")]
+        private IWebElement linkCreateAccount;
 
-        [FindsBy(How = How.Id, Using = "username")]
+        [FindsBy(How = How.Id, Using = "firstName")]
+        private IWebElement firstName;
+
+        [FindsBy(How = How.Id, Using = "lastName")]
+        private IWebElement lastName;
+
+        [FindsBy(How = How.Id, Using = "email")]
         private IWebElement email;
 
-        [FindsBy(How = How.Id, Using = "firstname")]
-        private IWebElement name;
-
-        [FindsBy(How = How.Id, Using = "lastname")]
-        private IWebElement lastname;
-
-        [FindsBy(How = How.Id, Using = "password")]
+        [FindsBy(How = How.Id, Using = "fld-p1")]
         private IWebElement password;
 
-        [FindsBy(How = How.Id, Using = "createAccount")]
-        private IWebElement btnCreateAccount;
+        [FindsBy(How = How.Id, Using = "reenterPassword")]
+        private IWebElement confirmPassword;
 
-        [FindsBy(How = How.Id, Using = "keepMeSignedIn")]
-        private IWebElement keepMeSignedIn;
+        [FindsBy(How = How.Id, Using = "phone")]
+        private IWebElement phone;
+
+        [FindsBy(How = How.CssSelector, Using = "button[data-track='Create Account']")]
+        private IWebElement btnCreateAccount;
 
         public CreateAccountPage(IWebDriver driver)
         {
@@ -42,20 +45,25 @@ namespace ProyectoCalidad.Source.Pages
             PageFactory.InitElements(driver, this);
         }
 
-        public void createAccount(string vemail,string vname, string vlastname,string vpassword)
+        public void createAccount(string vemail,string vname, string vlastname,string vpassword, string vphone)
         {
-            linkSignIn.Click();
-            Thread.Sleep(2000);
-            IWebElement element = elements[1];
-            element.Click();
-            Thread.Sleep(2000);
+            linkLogin.Click();
+            Thread.Sleep(1000);
+            linkCreateAccount.Click();
+            Thread.Sleep(5000);
+            firstName.SendKeys(vname);
+            Thread.Sleep(1000);
+            lastName.SendKeys(vlastname);
+            Thread.Sleep(1000);
             email.SendKeys(vemail);
-            name.SendKeys(vname);
-            lastname.SendKeys(vlastname);
+            Thread.Sleep(1000);
             password.SendKeys(vpassword);
-            Thread.Sleep(2000);
-            btnCreateAccount.Click();
+            Thread.Sleep(1000);
+            confirmPassword.SendKeys(vpassword);
+            phone.SendKeys(vphone);
             Thread.Sleep(4000);
+            btnCreateAccount.Click();
+            Thread.Sleep(7000);
         }
     }
 }
