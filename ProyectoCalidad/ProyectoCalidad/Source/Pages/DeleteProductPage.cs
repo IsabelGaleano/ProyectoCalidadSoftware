@@ -29,6 +29,7 @@ namespace ProyectoCalidad.Source.Pages
           
             ProductCartPage productCartPage = new ProductCartPage(this.driver);
             productCartPage.addToCart();
+            Thread.Sleep(1000);
             btnRemove.Click();
             Thread.Sleep(1000);
             btnSaveRemove.Click();

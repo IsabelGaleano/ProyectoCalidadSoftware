@@ -8,7 +8,7 @@ using System.Text;
 
 namespace ProyectoCalidad.Tests
 {
-    public class LoginTest
+    public class SignOutTest
     {
         private IWebDriver driver;
 
@@ -23,12 +23,12 @@ namespace ProyectoCalidad.Tests
 
 
         [Test]
-        public void login()
+        public void signOutF()
         {
-            LoginPage productPage = new LoginPage(driver);
+            SignOutPage page = new SignOutPage(driver);
             driver.Navigate().GoToUrl("https://www.bestbuy.com/?intl=nosplash");
-            productPage.login("julianStartupsafe@gmail.com", "GatosLuw123!");
-            Assert.True(this.driver.Title.Contains("Account Home - Best Buy"));
+            page.signOut("julianStartupsafe@gmail.com", "GatosLuw123!");
+            Assert.True(this.driver.Title.Contains("Best Buy | Official Online Store | Shop Now & Save"));
         }
 
         [TearDown]
