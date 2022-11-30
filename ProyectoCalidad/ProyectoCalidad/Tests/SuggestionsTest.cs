@@ -33,6 +33,16 @@ namespace ProyectoCalidad.Tests
             Assert.True(this.driver.Title.Contains("headphones wireless noise cancel - Best Buy"));
         }
 
+        [Test]
+        public void validateSuggestionsIncorrect()
+        {
+            SuggestionsSearchesPage page = new SuggestionsSearchesPage(driver);
+            driver.Navigate().GoToUrl("https://www.bestbuy.com/?intl=nosplash");
+            page.validateSuggestion("heahones wireless noise cancel");
+            Thread.Sleep(3000);
+            Assert.True(this.driver.Title.Contains("headphones wireless noise cancel - Best Buy"));
+        }
+
         [TearDown]
         public void cleanup()
         {

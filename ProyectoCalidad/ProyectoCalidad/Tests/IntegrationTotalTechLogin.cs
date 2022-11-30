@@ -1,14 +1,11 @@
 ﻿using NUnit.Framework;
-using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
+using OpenQA.Selenium;
 using ProyectoCalidad.Source.Pages;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace ProyectoCalidad.Tests
 {
-    public class LoginTest
+    internal class IntegrationTotalTechLogin
     {
         private IWebDriver driver;
 
@@ -21,14 +18,15 @@ namespace ProyectoCalidad.Tests
             driver = new ChromeDriver(options);
         }
 
-
         [Test]
-        public void login()
+        public void validateRedirect()
         {
             LoginPage productPage = new LoginPage(driver);
             driver.Navigate().GoToUrl("https://www.bestbuy.com/?intl=nosplash");
             productPage.login("julianStartupsafe@gmail.com", "GatosLuw123!");
-            //Assert.True(this.driver.Title.Contains("Account Home - Best Buy"));
+            TotalTech totalTech = new TotalTech(driver);
+            totalTech.goToTotalTech();
+            Assert.True(this.driver.Url.Equals("https://www.bestbuy.com/site/electronics/totaltech/pcmcat1629315977983.c?id=pcmcat1629315977983"));
         }
 
         [TearDown]

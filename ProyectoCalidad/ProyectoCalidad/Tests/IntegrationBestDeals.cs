@@ -2,13 +2,11 @@
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 using ProyectoCalidad.Source.Pages;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace ProyectoCalidad.Tests
 {
-    public class LoginTest
+
+    internal class IntegrationBestDeals
     {
         private IWebDriver driver;
 
@@ -21,20 +19,13 @@ namespace ProyectoCalidad.Tests
             driver = new ChromeDriver(options);
         }
 
-
         [Test]
-        public void login()
+        public void validateRedirect()
         {
-            LoginPage productPage = new LoginPage(driver);
+            HomePage home = new HomePage(driver);
             driver.Navigate().GoToUrl("https://www.bestbuy.com/?intl=nosplash");
-            productPage.login("julianStartupsafe@gmail.com", "GatosLuw123!");
-            //Assert.True(this.driver.Title.Contains("Account Home - Best Buy"));
-        }
-
-        [TearDown]
-        public void cleanup()
-        {
-            driver.Quit();
+            home.goToTopDeals();
+            Assert.True(this.driver.Url.Equals("https://www.bestbuy.com/site/electronics/top-deals/pcmcat1563299784494.c?id=pcmcat1563299784494"));
         }
     }
 }

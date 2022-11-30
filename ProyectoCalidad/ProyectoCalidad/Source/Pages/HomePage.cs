@@ -29,6 +29,9 @@ namespace ProyectoCalidad.Source.Pages
         [FindsBy(How = How.ClassName, Using = "se-carousel-item")]
         private IList<IWebElement> listProducts;
 
+        [FindsBy(How = How.CssSelector, Using = "a[data-lid='hdr_td_topdeals'")]
+        private IWebElement topDealsButton;
+
         public HomePage(IWebDriver driver) {
             this.driver = driver;
             PageFactory.InitElements(driver, this);
@@ -53,6 +56,12 @@ namespace ProyectoCalidad.Source.Pages
             Thread.Sleep(1000);
             IWebElement pr = listProducts[0];
             pr.Click();
+            Thread.Sleep(2000);
+        }
+
+        public void goToTopDeals()
+        {
+            topDealsButton.Click();
             Thread.Sleep(2000);
         }
 
