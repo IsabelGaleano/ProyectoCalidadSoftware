@@ -1,4 +1,5 @@
 ﻿using OpenQA.Selenium;
+using OpenQA.Selenium.Support.UI;
 using SeleniumExtras.PageObjects;
 using System;
 using System.Collections.Generic;
@@ -28,8 +29,19 @@ namespace ProyectoCalidad.Source.Pages
             btnaddToCart.Click();
             Thread.Sleep(5000);
 
+        }
 
-
+        public void addToCartAgain()
+        {
+            HomePage hp = new HomePage(driver);
+            hp.search("shoes rack");
+            Thread.Sleep(1000);
+            btnaddToCart.Click();
+            Thread.Sleep(8000);
+            hp.search("shoes rack");
+            Thread.Sleep(2000);
+            btnaddToCart.Click();
+            Thread.Sleep(5000);
         }
     }
 }

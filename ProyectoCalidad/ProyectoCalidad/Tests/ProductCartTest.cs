@@ -31,6 +31,15 @@ namespace ProyectoCalidad.Tests
             Assert.True(this.driver.Title.Contains("Cart - Best Buy"));
         }
 
+        [Test]
+        public void addProductCartAgain()
+        {
+            ProductCartPage productPage = new ProductCartPage(driver);
+            driver.Navigate().GoToUrl("https://www.bestbuy.com/?intl=nosplash");
+            productPage.addToCartAgain();
+            Assert.True(this.driver.Title.Contains("Cart - Best Buy"));
+        }
+
         [TearDown]
         public void cleanup()
         {
