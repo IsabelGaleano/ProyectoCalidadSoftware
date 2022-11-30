@@ -25,11 +25,11 @@ namespace ProyectoCalidad.Tests
         public void validateRedirect()
         {
             HomePage home = new HomePage(driver);
-            BestDeals deals = new BestDeals(driver);
             driver.Navigate().GoToUrl("https://www.bestbuy.com/?intl=nosplash");
             home.goToTopDeals();
-            deals.goToTopDealsGames();
-            Assert.True(this.driver.Url.Equals("https://www.bestbuy.com/site/misc/deal-of-the-day/pcmcat248000050016.c?id=pcmcat248000050016"));
+            BestDeals todayDeal = new BestDeals(driver);
+            todayDeal.goToTopDealsGames();
+            Assert.True(this.driver.Url.Equals("https://www.bestbuy.com/site/tvs/smart-tvs/pcmcat220700050011.c?id=pcmcat220700050011"));
         }
     }
 }
