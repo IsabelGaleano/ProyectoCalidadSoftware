@@ -38,8 +38,7 @@ namespace ProyectoCalidad.Tests
         [Test]
         public void CreateUserAccountPageIsDisplayed()
         {
-            HomePage homePage = new HomePage(driver);
-            this.driver.Navigate().GoToUrl("https://www.bestbuy.com/identity/newAccount?token=tid%3A6b6b6b2f-705b-11ed-a952-0a8483477659");
+            this.driver.Navigate().GoToUrl("https://www.bestbuy.com/identity/global/createAccount");
 
             this.js = (IJavaScriptExecutor)driver;
             bool wasDisplayed = js.ExecuteScript("return document.readyState").ToString().Equals("complete");
