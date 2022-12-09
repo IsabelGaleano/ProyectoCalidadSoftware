@@ -28,9 +28,9 @@ namespace ProyectoCalidad.Tests
             HomePage home = new HomePage(driver);
             driver.Navigate().GoToUrl("https://www.bestbuy.com/?intl=nosplash");
             home.goToTopDeals();
-            BestDeals todayDeal = new BestDeals(driver);
-            todayDeal.goToTopDealsGames();
-            Assert.True(this.driver.Url.Equals("https://www.bestbuy.com/site/tvs/smart-tvs/pcmcat220700050011.c?id=pcmcat220700050011"));
+            TopDeals todayDeal = new TopDeals(driver);
+            todayDeal.goToTopDaySales();
+            Assert.True(this.driver.Url.Equals("https://www.bestbuy.com/site/clp/sale-page/pcmcat185700050011.c?id=pcmcat185700050011"));
         }
     }
 }
