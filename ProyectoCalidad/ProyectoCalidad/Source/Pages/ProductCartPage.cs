@@ -27,7 +27,7 @@ namespace ProyectoCalidad.Source.Pages
             hp.search("shoes rack");
             Thread.Sleep(1000);
             btnaddToCart.Click();
-            Thread.Sleep(5000);
+            Thread.Sleep(6000);
 
         }
 

@@ -17,6 +17,7 @@ namespace ProyectoCalidad.Tests
         {
             ChromeOptions options = new ChromeOptions();
             options.AddArgument("--disable-blink-features=AutomationControlled");
+            options.AddArgument("--start-maximized");
             options.AddArgument("--incognito");
             driver = new ChromeDriver(options);
         }
@@ -56,6 +57,12 @@ namespace ProyectoCalidad.Tests
             IList<IWebElement> elements = driver.FindElements(By.CssSelector("#widget-c43f62dd-fbbd-42ce-b077-c7e701007da5 > div > div.sale-event-grid-wrapper.rows-3 > div"));
             Assert.GreaterOrEqual(elements.Count, 18);
             this.driver.Close();
+        }
+
+        [TearDown]
+        public void cleanup()
+        {
+            driver.Quit();
         }
     }
 }

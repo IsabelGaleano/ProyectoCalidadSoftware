@@ -17,6 +17,7 @@ namespace ProyectoCalidad.Tests
         {
             ChromeOptions options = new ChromeOptions();
             options.AddArgument("--disable-blink-features=AutomationControlled");
+            options.AddArgument("--start-maximized");
             options.AddArgument("--incognito");
             driver = new ChromeDriver(options);
         }
