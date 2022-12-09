@@ -54,7 +54,8 @@ namespace ProyectoCalidad.Tests
             HomePage homePage = new HomePage(driver);
             this.driver.Navigate().GoToUrl("https://www.bestbuy.com/?intl=nosplash");
 
-            IList<IWebElement> elements = driver.FindElements(By.CssSelector("#widget-c43f62dd-fbbd-42ce-b077-c7e701007da5 > div > div.sale-event-grid-wrapper.rows-3 > div"));
+            //IList<IWebElement> elements = driver.FindElements(By.CssSelector("#widget-c43f62dd-fbbd-42ce-b077-c7e701007da5 > div > div.sale-event-grid-wrapper.rows-3 > div"));
+            IList<IWebElement> elements = driver.FindElements(By.CssSelector(".widget-sale-event > div > div.sale-event-grid-wrapper.rows-3 > div"));
             Assert.GreaterOrEqual(elements.Count, 18);
             this.driver.Close();
         }
