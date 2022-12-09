@@ -15,6 +15,7 @@ namespace ProyectoCalidad.Tests
         {
             ChromeOptions options = new ChromeOptions();
             options.AddArgument("--disable-blink-features=AutomationControlled");
+            options.AddArgument("--start-maximized");
             options.AddArgument("--incognito");
             driver = new ChromeDriver(options);
         }
@@ -26,6 +27,12 @@ namespace ProyectoCalidad.Tests
             driver.Navigate().GoToUrl("https://www.bestbuy.com/?intl=nosplash");
             home.goToTopDeals();
             Assert.True(this.driver.Url.Equals("https://www.bestbuy.com/site/electronics/top-deals/pcmcat1563299784494.c?id=pcmcat1563299784494"));
+        }
+
+        [TearDown]
+        public void cleanup()
+        {
+            driver.Quit();
         }
     }
 }

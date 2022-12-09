@@ -53,10 +53,7 @@ namespace ProyectoCalidad.Source.Pages
             Thread.Sleep(1000);
             IWebElement el = listCategories[2];
             el.Click();
-            Thread.Sleep(1000);
-            IWebElement pr = listProducts[0];
-            pr.Click();
-            Thread.Sleep(2000);
+            Thread.Sleep(3000);
         }
 
         public void goToTopDeals()
