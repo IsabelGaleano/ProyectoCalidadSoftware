@@ -14,6 +14,7 @@ namespace ProyectoCalidad.Tests
         {
             ChromeOptions options = new ChromeOptions();
             options.AddArgument("--disable-blink-features=AutomationControlled");
+            options.AddArgument("--start-maximized");
             options.AddArgument("--incognito");
             driver = new ChromeDriver(options);
         }
@@ -25,6 +26,12 @@ namespace ProyectoCalidad.Tests
             TotalTech totalTech = new TotalTech(driver);
             totalTech.goToTotalTech();
             Assert.True(this.driver.Url.Equals("https://www.bestbuy.com/site/electronics/totaltech/pcmcat1629315977983.c?id=pcmcat1629315977983"));
+        }
+
+        [TearDown]
+        public void cleanup()
+        {
+            driver.Quit();
         }
     }
 }

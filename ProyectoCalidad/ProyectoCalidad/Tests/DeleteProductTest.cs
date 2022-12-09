@@ -19,6 +19,7 @@ namespace ProyectoCalidad.Tests
         public void initScript()
         {
             ChromeOptions options = new ChromeOptions();
+            options.AddArgument("--start-maximized");
             options.AddArgument("--incognito");
             driver = new ChromeDriver(options);
         }
