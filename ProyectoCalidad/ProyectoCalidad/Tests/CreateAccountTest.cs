@@ -33,6 +33,17 @@ namespace ProyectoCalidad.Tests
             Assert.True(this.driver.Title.Contains("Account Home - Best Buy"));
         }
 
+        [Test]
+        public void createWrongAccount()
+        {
+            CreateAccountPage productPage = new CreateAccountPage(driver);
+            driver.Navigate().GoToUrl("https://www.bestbuy.com/?intl=nosplash");
+            productPage.createAccount("julianStartupsafe@gmail.com", "Adrian", "Herrera", "GatosLuw123!", "50684511935");
+
+            IWebElement element = this.driver.FindElement(By.CssSelector(".c-alert"));
+            Assert.True(element.Displayed);
+        }
+
         [TearDown]
         public void cleanup()
         {
