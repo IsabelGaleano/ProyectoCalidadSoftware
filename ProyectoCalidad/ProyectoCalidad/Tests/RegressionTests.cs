@@ -49,6 +49,27 @@ namespace ProyectoCalidad.Tests
             //Assert.True(this.driver.Title.Contains("Peck Apple Iphone 14 Pro Presidio Perfect Clear Case : Target"));
         }
 
+        [Test]
+        public void wrongCredentialsLogin()
+        {
+            LoginPage productPage = new LoginPage(driver);
+            driver.Navigate().GoToUrl("https://www.bestbuy.com/?intl=nosplash");
+            productPage.login("julianStartupsafe@gmail.com", "Gatos!456");
+            IWebElement element = this.driver.findElement(By.cssSelector(".c-alert"))
+            Assert.True(element.Displayed);
+        }
+
+        [Test]
+        public void createAccountSameEmailReg()
+        {
+            CreateAccountPage productPage = new CreateAccountPage(driver);
+            driver.Navigate().GoToUrl("https://www.bestbuy.com/?intl=nosplash");
+            productPage.createAccount("julianStartupsafe@gmail.com", "Adrian", "Herrera", "GatosLuw123!", "50684511935");
+            
+            IWebElement element = this.driver.findElement(By.cssSelector(".c-alert"))
+            Assert.True(element.Displayed);
+        }
+
         [TearDown]
         public void cleanup()
         {
