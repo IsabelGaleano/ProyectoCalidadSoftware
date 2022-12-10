@@ -55,7 +55,7 @@ namespace ProyectoCalidad.Tests
             LoginPage productPage = new LoginPage(driver);
             driver.Navigate().GoToUrl("https://www.bestbuy.com/?intl=nosplash");
             productPage.login("julianStartupsafe@gmail.com", "Gatos!456");
-            IWebElement element = this.driver.findElement(By.cssSelector(".c-alert"))
+            IWebElement element = this.driver.FindElement(By.CssSelector(".c-alert"));
             Assert.True(element.Displayed);
         }
 
@@ -65,8 +65,8 @@ namespace ProyectoCalidad.Tests
             CreateAccountPage productPage = new CreateAccountPage(driver);
             driver.Navigate().GoToUrl("https://www.bestbuy.com/?intl=nosplash");
             productPage.createAccount("julianStartupsafe@gmail.com", "Adrian", "Herrera", "GatosLuw123!", "50684511935");
-            
-            IWebElement element = this.driver.findElement(By.cssSelector(".c-alert"))
+
+            IWebElement element = this.driver.FindElement(By.CssSelector(".c-alert"));
             Assert.True(element.Displayed);
         }
 
